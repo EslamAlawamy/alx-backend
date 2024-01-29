@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
-""" Deletion-resilient hypermedia Module """
+""" Deletion-resilient hypermedia pagination Module """
+
 import csv
 import math
-from typing import List
+from typing import List, Dict
 
 
 class Server:
-    """ Class to paginate a database of popular baby names """
+    """ Cass to paginate a database of popular baby names """
 
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        """ Initialize """
         self.__dataset = None
+        self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
         """ Cached dataset """
@@ -21,6 +22,8 @@ class Server:
                 reader = csv.reader(f)
                 dataset = [row for row in reader]
             self.__dataset = dataset[1:]
+
+        return self.__dataset
 
     def indexed_dataset(self) -> Dict[int, List]:
         """ Dataset indexed by sorting position, starting in 0 """
