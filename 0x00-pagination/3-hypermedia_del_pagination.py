@@ -7,7 +7,7 @@ from typing import List, Dict
 
 
 class Server:
-    """ Cass to paginate a database of popular baby names """
+    """ Class to paginate a database of popular baby names """
 
     DATA_FILE = "Popular_Baby_Names.csv"
 
